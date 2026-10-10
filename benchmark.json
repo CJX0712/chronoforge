@@ -1,0 +1,336 @@
+{
+  "horizon": 12,
+  "n_series": 40,
+  "n_bases": 6,
+  "n_rolling_origins": 8,
+  "methods": {
+    "average": {
+      "smape_mean": 3.879401812943388,
+      "smape_std": 1.799128675615964,
+      "mase_mean": 0.8485175808269438,
+      "mase_std": 0.5846958269016135,
+      "n": 40
+    },
+    "naive": {
+      "smape_mean": 12.750054136924248,
+      "smape_std": 9.368227433537404,
+      "mase_mean": 1.838790851430224,
+      "mase_std": 0.6881820932686775,
+      "n": 40
+    },
+    "seasonal_naive": {
+      "smape_mean": 4.76411150564722,
+      "smape_std": 3.846037334975226,
+      "mase_mean": 1.3828908004996392,
+      "mase_std": 1.5334837308975644,
+      "n": 40
+    },
+    "holt_winters_add": {
+      "smape_mean": 2.3766219579404724,
+      "smape_std": 1.5504336936114407,
+      "mase_mean": 0.7619872794313529,
+      "mase_std": 0.9329433189144067,
+      "n": 40
+    },
+    "holt_winters_mul": {
+      "smape_mean": 2.706226921815632,
+      "smape_std": 1.5213455340830617,
+      "mase_mean": 0.8170980786008171,
+      "mase_std": 0.8555828577055923,
+      "n": 40
+    },
+    "ar": {
+      "smape_mean": 8.343002917626814,
+      "smape_std": 6.774426869595356,
+      "mase_mean": 1.5270965772606497,
+      "mase_std": 1.3247324301513632,
+      "n": 40
+    },
+    "ets": {
+      "smape_mean": 2.2347898381555167,
+      "smape_std": 1.352083573147163,
+      "mase_mean": 0.7957586467072416,
+      "mase_std": 1.0070583164312077,
+      "n": 40
+    },
+    "chronofuse": {
+      "smape_mean": 1.9755570698789324,
+      "smape_std": 1.1085593704173742,
+      "mase_mean": 0.6088348946292259,
+      "mase_std": 0.6813359021165667,
+      "n": 40
+    },
+    "arima": {
+      "smape_mean": 9.274255183937159,
+      "smape_std": 7.014791857285507,
+      "mase_mean": 1.4716148259022799,
+      "mase_std": 0.5837221719749689,
+      "n": 40
+    }
+  },
+  "strongest_single_base": "ets",
+  "strongest_single_smape": 2.2347898381555167,
+  "chrono_smape": 1.9755570698789324,
+  "chrono_vs_strongest_smape_reduction_pct": 11.599872339250565,
+  "chrono_fallback_count": 3,
+  "reference_available": true,
+  "per_regime": {
+    "trend_linear": [
+      {
+        "name": "trend_linear_s7",
+        "regime": "trend_linear",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.8088641912499022
+      },
+      {
+        "name": "trend_linear_s42",
+        "regime": "trend_linear",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.577907602764384
+      },
+      {
+        "name": "trend_linear_s123",
+        "regime": "trend_linear",
+        "chrono_use_fallback": false,
+        "chrono_smape": 2.873137425406883
+      },
+      {
+        "name": "trend_linear_s2024",
+        "regime": "trend_linear",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.02869325846782
+      },
+      {
+        "name": "trend_linear_s99",
+        "regime": "trend_linear",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.4886891566571874
+      }
+    ],
+    "trend_exp": [
+      {
+        "name": "trend_exp_s7",
+        "regime": "trend_exp",
+        "chrono_use_fallback": false,
+        "chrono_smape": 2.954877590391091
+      },
+      {
+        "name": "trend_exp_s42",
+        "regime": "trend_exp",
+        "chrono_use_fallback": false,
+        "chrono_smape": 3.3667815552193665
+      },
+      {
+        "name": "trend_exp_s123",
+        "regime": "trend_exp",
+        "chrono_use_fallback": false,
+        "chrono_smape": 3.0045227672795587
+      },
+      {
+        "name": "trend_exp_s2024",
+        "regime": "trend_exp",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.8030378331811132
+      },
+      {
+        "name": "trend_exp_s99",
+        "regime": "trend_exp",
+        "chrono_use_fallback": false,
+        "chrono_smape": 2.7261515451566454
+      }
+    ],
+    "seasonal_add": [
+      {
+        "name": "seasonal_add_s7",
+        "regime": "seasonal_add",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.482120979204554
+      },
+      {
+        "name": "seasonal_add_s42",
+        "regime": "seasonal_add",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.2090747173312864
+      },
+      {
+        "name": "seasonal_add_s123",
+        "regime": "seasonal_add",
+        "chrono_use_fallback": false,
+        "chrono_smape": 2.2005105138154195
+      },
+      {
+        "name": "seasonal_add_s2024",
+        "regime": "seasonal_add",
+        "chrono_use_fallback": false,
+        "chrono_smape": 0.8534389895554857
+      },
+      {
+        "name": "seasonal_add_s99",
+        "regime": "seasonal_add",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.2040464245527167
+      }
+    ],
+    "seasonal_mul": [
+      {
+        "name": "seasonal_mul_s7",
+        "regime": "seasonal_mul",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.1686459125172695
+      },
+      {
+        "name": "seasonal_mul_s42",
+        "regime": "seasonal_mul",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.2092254868002106
+      },
+      {
+        "name": "seasonal_mul_s123",
+        "regime": "seasonal_mul",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.262575681525032
+      },
+      {
+        "name": "seasonal_mul_s2024",
+        "regime": "seasonal_mul",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.0254012218072157
+      },
+      {
+        "name": "seasonal_mul_s99",
+        "regime": "seasonal_mul",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.0343556459717986
+      }
+    ],
+    "trend_seasonal": [
+      {
+        "name": "trend_seasonal_s7",
+        "regime": "trend_seasonal",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.9351410415471004
+      },
+      {
+        "name": "trend_seasonal_s42",
+        "regime": "trend_seasonal",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.6639701541541367
+      },
+      {
+        "name": "trend_seasonal_s123",
+        "regime": "trend_seasonal",
+        "chrono_use_fallback": false,
+        "chrono_smape": 3.257013460002147
+      },
+      {
+        "name": "trend_seasonal_s2024",
+        "regime": "trend_seasonal",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.1213022204188188
+      },
+      {
+        "name": "trend_seasonal_s99",
+        "regime": "trend_seasonal",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.5934676878017593
+      }
+    ],
+    "level_shift": [
+      {
+        "name": "level_shift_s7",
+        "regime": "level_shift",
+        "chrono_use_fallback": true,
+        "chrono_smape": 1.1248386706625912
+      },
+      {
+        "name": "level_shift_s42",
+        "regime": "level_shift",
+        "chrono_use_fallback": true,
+        "chrono_smape": 0.7823242882237347
+      },
+      {
+        "name": "level_shift_s123",
+        "regime": "level_shift",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.2377394326065685
+      },
+      {
+        "name": "level_shift_s2024",
+        "regime": "level_shift",
+        "chrono_use_fallback": false,
+        "chrono_smape": 2.1027547206484667
+      },
+      {
+        "name": "level_shift_s99",
+        "regime": "level_shift",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.2367686517856533
+      }
+    ],
+    "multiple_seasonal": [
+      {
+        "name": "multiple_seasonal_s7",
+        "regime": "multiple_seasonal",
+        "chrono_use_fallback": false,
+        "chrono_smape": 2.0093449488069015
+      },
+      {
+        "name": "multiple_seasonal_s42",
+        "regime": "multiple_seasonal",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.5713164468592151
+      },
+      {
+        "name": "multiple_seasonal_s123",
+        "regime": "multiple_seasonal",
+        "chrono_use_fallback": false,
+        "chrono_smape": 2.687169831915885
+      },
+      {
+        "name": "multiple_seasonal_s2024",
+        "regime": "multiple_seasonal",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.7746734911017192
+      },
+      {
+        "name": "multiple_seasonal_s99",
+        "regime": "multiple_seasonal",
+        "chrono_use_fallback": false,
+        "chrono_smape": 1.766625081080303
+      }
+    ],
+    "noisy_random_walk": [
+      {
+        "name": "noisy_random_walk_s7",
+        "regime": "noisy_random_walk",
+        "chrono_use_fallback": false,
+        "chrono_smape": 4.124392078808721
+      },
+      {
+        "name": "noisy_random_walk_s42",
+        "regime": "noisy_random_walk",
+        "chrono_use_fallback": false,
+        "chrono_smape": 6.6244896210103805
+      },
+      {
+        "name": "noisy_random_walk_s123",
+        "regime": "noisy_random_walk",
+        "chrono_use_fallback": true,
+        "chrono_smape": 1.4163648321889315
+      },
+      {
+        "name": "noisy_random_walk_s2024",
+        "regime": "noisy_random_walk",
+        "chrono_use_fallback": false,
+        "chrono_smape": 3.2215353102988957
+      },
+      {
+        "name": "noisy_random_walk_s99",
+        "regime": "noisy_random_walk",
+        "chrono_use_fallback": false,
+        "chrono_smape": 2.4889923263804246
+      }
+    ]
+  },
+  "failure_cases": []
+}

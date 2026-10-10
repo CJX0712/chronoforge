@@ -1,0 +1,73 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    name: test (py${{ matrix.python-version }})
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        python-version: ["3.12", "3.13"]
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python-version }}
+          cache: pip
+
+      - name: Install deps
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install -r requirements.txt
+          python -m pip install ".[dev]"
+
+      - name: Ruff (lint)
+        run: python -m ruff check .
+
+      - name: Ruff (format)
+        run: python -m ruff format --check .
+
+      - name: Pytest + coverage (gate 80%)
+        run: python -m pytest -q --cov=chronoforge --cov-report=term-missing --cov-fail-under=80
+
+      - name: Determinism check
+        run: python -m chronoforge.cli detcheck
+
+      - name: End-to-end demo (smoke)
+        run: python -m chronoforge.cli demo --out benchmark.json
+
+  offline:
+    name: offline fallback (no statsmodels)
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+      - name: Install numpy only
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install numpy pytest pytest-cov ruff
+      - name: Verify graceful degradation
+        run: |
+          python -m pytest -q
+          python -c "
+          import json
+          from chronoforge.pipeline import run, save_report
+          r, _ = run(seed=12345, regimes=['seasonal_add','trend_linear','level_shift'])
+          assert r['reference_available'] is False, 'statsmodels 缺失时应标注不可用，不得伪造参考值'
+          assert r['chrono_smape'] == r['chrono_smape'], 'ChronoFuse 指标须有限'
+          print('offline OK: reference_available =', r['reference_available'])
+          "
